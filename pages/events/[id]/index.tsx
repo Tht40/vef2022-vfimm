@@ -50,7 +50,7 @@ const Event: NextPage = ({ data}) => {
           },
           body: JSON.stringify(body)
       }
-      const resp = await fetch(`${defaultEndpoint}/${id}/register`,req);
+      const resp = await fetch(`${defaultEndpoint}/${id}/register`, req);
       const data = await resp.json();
       console.log(JSON.stringify(req));
       console.log(`${defaultEndpoint}/${id}`)
