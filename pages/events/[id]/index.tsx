@@ -61,8 +61,7 @@ const Event: NextPage = ({ data }) => {
       }
       const resp = await fetch(`${defaultEndpoint}/${id}/register`,req);
       const data = await resp.json();
-      console.log(JSON.stringify(req));
-      console.log(`${defaultEndpoint}/${id}`)
+      
       setRegistered(true);
     }
   }
