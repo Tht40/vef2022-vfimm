@@ -9,8 +9,17 @@ import styles from '../../../styles/Home.module.css'
 
 const defaultEndpoint = "https://vef2-20222-v3-synilausn.herokuapp.com/events";
 
+interface DataType{
+  name:string;
+  id: string;
+  description: string;
+  registrations: string;
+}
+interface PropType {
+  data:DataType[]
+}
 
-export async function getServerSideProps({ query }){
+export async function getServerSideProps({query} : {query:any}){
     const {id} =query;
     const res = await fetch(`${defaultEndpoint}/${id}`);
     const data = await res.json();
@@ -23,8 +32,8 @@ export async function getServerSideProps({ query }){
 
 let comment = '';
 
-const Event: NextPage = ({ data}) => {
-  const { name, created, description, creatorid, updated} = data;
+const Event: NextPage = ({ data }) => {
+  const { name,  description} = data;
   const {registrations = []} = data;
   const {id} = data;
   let loggedin;
@@ -43,7 +52,7 @@ const Event: NextPage = ({ data}) => {
       
       
       const req = {
-          mode: 'cors',
+          mode: 'cors' as RequestMode,
           method: 'POST',
           headers: {
             "Authorization": `Bearer ${window.localStorage.getItem('token')}`,

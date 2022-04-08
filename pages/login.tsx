@@ -40,7 +40,7 @@ const Login: NextPage = ({data}) => {
         password: password
     }
     const req = {
-        mode: 'cors',
+        mode: 'cors' as RequestMode,
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

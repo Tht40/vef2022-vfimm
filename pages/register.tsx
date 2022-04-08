@@ -33,11 +33,11 @@ async function tryRegister(e){
       password: password
   }
 
-  if(body.password.length > 5){
+  if(body.password.length > 10){
 
   }
   const req = {
-      mode: 'cors',
+      mode: 'cors' as RequestMode,
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',
@@ -81,7 +81,7 @@ const Register: NextPage = () => {
         <div className="field">
             <label>Lykilorð</label>
             <br></br>
-            <input className={styles.inputbox} type="password" name="password" id="password" placeholder="10 stafir min" onChange={e => password = e.target.value}></input>
+            <input  type="password" name="password" id="password" placeholder="10 stafir min" onChange={e => password = e.target.value}></input>
         </div>
             <button className={styles.button} onClick={e => tryRegister(e)}>Nýskrá</button>
         </form>
