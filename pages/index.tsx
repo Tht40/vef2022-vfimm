@@ -19,7 +19,7 @@ export async function getServerSideProps(){
 }
 
 
-const Home: NextPage = ({ data }) => {
+const Home: NextPage = ({data}:{data:any}) => {
   const {items = []} = data;
   
   return (
