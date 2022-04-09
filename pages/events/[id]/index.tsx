@@ -11,7 +11,8 @@ const defaultEndpoint = "https://vef2-20222-v3-synilausn.herokuapp.com/events";
 
 
 
-const Event: NextPage = ({ data }) => {
+
+const Event: NextPage = ({ data}: {data:any}) => {
 
   const {name, id, description }= data
   const {registrations = []} = data;

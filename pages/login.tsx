@@ -27,7 +27,7 @@ export async function getServerSideProps(){
 
 
 
-const Login: NextPage = ({data}) => {
+const Login: NextPage = ({data}: {data:any}) => {
   
   const router = useRouter();
 

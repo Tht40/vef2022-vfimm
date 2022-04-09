@@ -3,7 +3,4 @@ const nextConfig = {
   reactStrictMode: false,
 }
 
-module.exports = {
-  nextConfig,
-  ignoreBuildErrors: true,
-}
+module.exports = nextConfig
