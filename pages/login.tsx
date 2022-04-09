@@ -50,7 +50,8 @@ const Login: NextPage = ({data}: {data:any}) => {
     const resp = await fetch(defaultEndpoint,req);
     const data = await resp.json();
     console.log(data);
-    localStorage.setItem('token', data.token)
+    localStorage.setItem('token', data.token);
+    localStorage.setItem('name', data.user.name);
     router.push('/');
 }
 

@@ -24,15 +24,13 @@ const Event: NextPage = ({ data}: {data:any}) => {
 
   const onRegister = (e) => {
     e.preventDefault();
-    registerevent(e);
-
-    async function registerevent(e) {
-      e.preventDefault();
-
+  }
+    async function registerevent() {
+      
       const body = {
         comment: comment,
       };
-      
+      console.log(JSON.stringify(body));
       
       const req = {
           mode: 'cors' as RequestMode,
@@ -40,14 +38,15 @@ const Event: NextPage = ({ data}: {data:any}) => {
           headers: {
             "Authorization": `Bearer ${window.localStorage.getItem('token')}`,
           },
-          body: JSON.stringify(body)
+          body: JSON.stringify(body),
       }
       const resp = await fetch(`${defaultEndpoint}/${id}/register`,req);
       const store = await resp.json();
+
       
       setRegistered(true);
     }
-  }
+  
 
   if(typeof window !== 'undefined'){
     if(window.localStorage.getItem("token")){
@@ -106,12 +105,12 @@ const Event: NextPage = ({ data}: {data:any}) => {
       {!registered && (
         <>
           {loggedin && (
-            <form className={styles.footers} onSubmit={onRegister}>
+            <form className={styles.footers} onSubmit={registerevent}>
               <h3>Skráningarform:</h3>
-              <label>Athugasemd</label><br></br>
-              <textarea  className={styles.inputbox} id="comment" name="comment" />
+              <label htmlFor="comment">Athugasemd</label><br></br>
+              <input  type="text" className={styles.inputbox} id="comment" name="comment"/>
               <br></br>
-              <button>Skrá mig</button>
+              <button onClick={onRegister}>Skrá mig</button>
               <p>&nbsp;</p>
             </form>
           )}

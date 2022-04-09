@@ -28,7 +28,7 @@ export function Login({
     return (
       <>
         <p className={styles.footers}>
-          Skráður inn sem <strong>`Bearer ${window.localStorage.getItem('token')}`</strong>
+          Skráður inn sem <strong>{window.localStorage.getItem('name')}</strong>
         </p>
         <button className={styles.footers} onClick={onLogout}>Útskrá</button>
       </>
