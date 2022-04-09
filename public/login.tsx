@@ -6,8 +6,6 @@ import styles from '../styles/Home.module.css'
 
 export function Login({
   loggedin = false,
-  name,
-  onRegister,
 }) {
 
   const router = useRouter();

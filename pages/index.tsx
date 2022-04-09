@@ -62,7 +62,7 @@ const Home: NextPage = ({ data }) => {
         <hr></hr>
         <div>
           <Login>
-            
+
           </Login>
         </div>
         </>
